@@ -23,6 +23,42 @@ const persone = [
         },
         interessi: ["pallamano", "rugby"]
     },
+    {
+        id: "3",
+        nome: "Luca",
+        congnome: "Franceschi",
+        eta: 24,
+        indirizzo: {
+            citta: "Milano",
+            via: "via Roma, 4",
+            cap: "98765"
+        },
+        interessi: ["pallamano", "rugby"]
+    },
+    {
+        id: "4",
+        nome: "Marta",
+        congnome: "Pizzicotto",
+        eta: 24,
+        indirizzo: {
+            citta: "Milano",
+            via: "via Roma, 4",
+            cap: "98765"
+        },
+        interessi: ["pallamano", "rugby"]
+    },
+    {
+        id: "5",
+        nome: "Ludovica",
+        congnome: "Viola",
+        eta: 24,
+        indirizzo: {
+            citta: "Milano",
+            via: "via Roma, 4",
+            cap: "98765"
+        },
+        interessi: ["pallamano", "rugby"]
+    },
 ]
 
 /** Esportiamo il modulo */

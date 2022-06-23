@@ -19,6 +19,8 @@ app.get('/persone', (req, res) => {
     res.json(nuovePersone);
 })
 
+/* ROUTE PARAMS */
+/*
 app.get('/persone/:id', (req, res) => {
     console.log(req.params);
 
@@ -34,6 +36,34 @@ app.get('/persone/:id', (req, res) => {
 
     res.json(persona);
 })
+*/
+/* END ROUTE PARAMS */
+
+/* QUERY STRING PARAMS*/
+app.get('/persone/search', (req, res) => {
+    const {query, limit} = req.query;
+    let personeFiltrate = [...persone];
+
+    //parametro query
+    if(query) {
+        personeFiltrate = personeFiltrate.filter((persona) => {
+            return persona.nome.startsWith(query);
+        })
+    }
+
+    //parametro limit
+    if(limit) {
+        personeFiltrate = personeFiltrate.slice(0, Number(limit))
+    }
+
+    //elemento array non esistente
+    if(personeFiltrate < 1) {
+        return res.status(200).json({code: 200, data:[]});
+    }
+
+    res.status(200).json(personeFiltrate)
+});
+/* END QUERY STRING PARAMS*/
 
 /** listen() per server in ascolto */
 app.listen(3000);
