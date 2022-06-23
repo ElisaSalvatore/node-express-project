@@ -1,31 +1,30 @@
 /** Importo modulo express */
 const express = require('express');
-
+const { dirname } = require('path');
 /** Utilizzo metodo express() e listen()*/
 const app = express();
 
+/** Comunico in quale cartella si trovano i file statici */
+app.use(express.static('public'));
+
 /** Getione della richiesta Homepage */
 app.get('/', (req, res) => {
-	res.send(`<h1>Homepage</h1>
-    <p>Hello world!</p>
-    `);
+	res.sendFile('homepage.html', {root: __dirname + '/public'});
 })
 
 /** Getione della richiesta Contatti */
 app.get('/contatti', (req, res) => {
-    res.send(`<h1>Contatti</h1>`);
+    res.sendFile('contatti.html', {root: __dirname + '/public'});
 })
 
 /** Getione della richiesta About */
 app.get('/about', (req, res) => {
-    res.send(`<h1>About</h1>`);
+    res.sendFile('about.html', {root: __dirname + '/public'});
 })
 
 /** Gestione di una richiesta qualsisi NON esistente */
 app.get('*', (req, res) => {
-    res.send(`<h1>Pagina non trovata!</h1>
-    <p>Torna alla <a href="/">homepage</a></p>
-    `);
+    res.sendFile('404.html', {root: __dirname + '/public'});
 })
 
 /** listen() per server in ascolto */
